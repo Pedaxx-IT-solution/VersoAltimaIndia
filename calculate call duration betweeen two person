@@ -1,0 +1,40 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class MyClass {
+    public static void main(String args[]) throws Exception {
+        
+        String startTime = "2020/11/14 12:10:21";
+        String endTime   = "2020/11/14 12:20:45";
+        
+        long i = getTimeDifference(startTime,endTime);
+        
+        System.out.println(i);
+    }
+    
+    
+    public static long getTimeDifference(String startTime , String endTime ) throws Exception{
+        
+          final  SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        
+          
+             final Date startTimeDate = format.parse(startTime);  
+             final Date endTimeDate   = format.parse(endTime);
+        
+            
+                                
+            System.out.println(startTimeDate); // `Sat Nov 14 12:10:21 GMT 2020`
+            System.out.println(endTimeDate); // `Sat Nov 14 12:20:45 GMT 2020`
+        
+            long timeDifference = endTimeDate.getTime() - startTimeDate.getTime();
+        
+            System.out.println(timeDifference); // `624000 in milliseconds` 
+            System.out.println(timeDifference/1000); // `624 seconds`                    
+                                
+             return timeDifference/1000;                    
+        
+    }
+    
+    
+    
+    
+}
