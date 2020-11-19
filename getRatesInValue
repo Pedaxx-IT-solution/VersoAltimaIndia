@@ -1,0 +1,72 @@
+public class MyClass {
+    public static void main(String args[]) {
+        
+        //  Kb MB GB
+        //  1024Kb = 1MB 
+        //  1024MB  = 1GB
+        
+        String usedData = "1gb";
+        
+    float value = getRates(usedData);
+        
+        System.out.println(value);
+        
+     
+    }
+    
+    
+     static float getRates( String data){
+        
+        
+        char ch1 = data.charAt(data.length()-1);
+        char ch2 = data.charAt(data.length()-2);
+        
+        String str1 = Character.toString(ch1);
+        String str2 = Character.toString(ch2);
+         
+         str2 = str2.concat(str1);
+         
+        if( str2.equals("kb")   ){
+            
+           String kb =  data.substring(0, data.length()-2);
+           
+           float value = Float.valueOf(kb);
+           
+         return value/100;
+           
+            
+        }else if(str2.equals("mb")){
+            
+           String mb =  data.substring(0, data.length()-2);
+           
+           float value = Float.valueOf(mb);
+           
+           
+           
+          return value*1024/100 ;
+           
+           
+           
+            
+        }else if(str2.equals("gb")){
+             String gb =  data.substring(0, data.length()-2);
+           
+           float value = Float.valueOf(gb);
+           
+           return value*1048576/100;
+           
+            
+        }else{
+            
+            System.out.println("put properr value");
+        }
+        
+       
+        
+        return -1;
+            
+    }
+    
+    
+    
+}
